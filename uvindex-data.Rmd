@@ -22,34 +22,67 @@ library(RCurl)
 ## Get data
 ```{r}
 # get uv index hourly given zip code
-zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
-zipfull_url <- paste0(zipbase_url, "95129/JSON")
-zipfull_url
-uvdatazip <- fromJSON(readLines(zipfull_url))
+uv_userzip <- function(zip_arg){
+  zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
+  zipfull_url <- paste0(zipbase_url, zip_arg, "/JSON")
+  uvdatazip <- fromJSON(readLines(zipfull_url))
+  return(uvdatazip)
+}
+
+uvdatazip = uv_userzip("85323")
 ```
 
 ```{r}
 # get uv index hourly given city, state
-city_url <- paste0("https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/washington/STATE/dc/JSON")
-uvdatacity <- fromJSON(readLines(city_url))
+uv_usercity <- function(city_arg, state_arg){
+  citybase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/"
+  cityfull_url <- paste0(citybase_url, city_arg, "/STATE/", state_arg, "/JSON")
+  uvdatacity <- fromJSON(readLines(cityfull_url))
+  return(uvdatacity)
+}
+
+uvdatacity = uv_usercity("san jose", "ca")
 ```
 
 ```{r}
 # convert time
-uvdatazip <- uvdatazip %>%
-  mutate(NEW_DATE = mdy_h(DATE_TIME))
-
-uvdatacity <- uvdatacity %>%
-  mutate(NEW_DATE = mdy_h(DATE_TIME))
+uv_converttime <- function(uvdf){
+  uvdf <- uvdf %>%
+    mutate(NEW_DATE = mdy_h(DATE_TIME))
+  return(uvdf)
+}
+uvdatacity = uv_converttime(uvdatacity)
+uvdatazip = uv_converttime(uvdatazip)
 ```
+
+## UV Index Classifications
+```{r}
+uvrisk <- data.frame(name = c("Low", "Moderate", "High", "Very High"),
+                    imin = c(0,3,6,8),
+                    imax = c(3,6,8,11),
+                    mycolor = c("A", "B", "C", "D")) %>%
+  mutate(medy = imin + floor((imax-imin)/2))
+```
+
 
 ## Plots
 ```{r}
-ggplot(uvdatazip, aes(x = NEW_DATE, y = UV_VALUE)) +
-  theme_light() +
-  geom_line() +
+uv_plot <- function(uvdf){
+  ggplot() +
+    theme_light() +
+  geom_rect(data = uvrisk, aes(xmin = c(uvdf$NEW_DATE[1], uvdf$NEW_DATE[1], uvdf$NEW_DATE[1], uvdf$NEW_DATE[1]), xmax = c(uvdf$NEW_DATE[21], uvdf$NEW_DATE[21], uvdf$NEW_DATE[21], uvdf$NEW_DATE[21]), ymin = imin, ymax = imax, fill = mycolor)) +
+  geom_text(data = uvrisk, aes(x = uvdf$NEW_DATE[3], y = medy, label = name, size = 3))+
+  geom_line(data = uvdf, aes(x = NEW_DATE, y = UV_VALUE)) +
   scale_y_continuous("UV Index", limit = c(-0.1, 11), breaks = c(0,1,2,3,4,5,6,7,8,9,10,11), expand = c(0, 0)) +
+  #scale_x_continuous(expand = c(0,0)) +
   ggtitle("UV Index in the Past Day") +
-  theme(axis.title.x = element_blank())
+  theme(axis.title.x = element_blank(),
+        legend.position = "None") 
+    
+}
+
+uv_plot(uvdatacity)
+uv_plot(uvdatazip)
+  
 ```
 
