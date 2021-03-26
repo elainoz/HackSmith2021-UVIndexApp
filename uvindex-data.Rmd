@@ -19,6 +19,7 @@ library(jsonlite)
 library(RCurl)
 ```
 
+## Get data
 ```{r}
 # get uv index hourly given zip code
 zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
@@ -33,4 +34,22 @@ city_url <- paste0("https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOUR
 uvdatacity <- fromJSON(readLines(city_url))
 ```
 
+```{r}
+# convert time
+uvdatazip <- uvdatazip %>%
+  mutate(NEW_DATE = mdy_h(DATE_TIME))
+
+uvdatacity <- uvdatacity %>%
+  mutate(NEW_DATE = mdy_h(DATE_TIME))
+```
+
+## Plots
+```{r}
+ggplot(uvdatazip, aes(x = NEW_DATE, y = UV_VALUE)) +
+  theme_light() +
+  geom_line() +
+  scale_y_continuous("UV Index", limit = c(-0.1, 11), breaks = c(0,1,2,3,4,5,6,7,8,9,10,11), expand = c(0, 0)) +
+  ggtitle("UV Index in the Past Day") +
+  theme(axis.title.x = element_blank())
+```
 
