@@ -1,0 +1,39 @@
+---
+title: "UV Index Plots"
+author: "HackSmith 2021"
+date: "3/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(rjson)
+library(jsonlite)
+library(RCurl)
+```
+
+```{r}
+# get uv index hourly given zip code
+zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
+zipfull_url <- paste0(zipbase_url, "95129/JSON")
+zipfull_url
+uvdatazip <- fromJSON(readLines(zipfull_url))
+```
+
+```{r}
+# get uv index hourly given city, state
+city_url <- paste0("https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/washington/STATE/dc/JSON")
+uvdatacity <- fromJSON(readLines(city_url))
+```
+
+```{r}
+ggplot(uvdatazip, aes(x = DATE_TIME, y = UV_VALUE)) +
+  geom_line()
+```
+
