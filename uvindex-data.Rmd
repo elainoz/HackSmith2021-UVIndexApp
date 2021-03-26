@@ -32,3 +32,8 @@ city_url <- paste0("https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOUR
 uvdatacity <- fromJSON(readLines(city_url))
 ```
 
+```{r}
+ggplot(uvdatazip, aes(x = DATE_TIME, y = UV_VALUE)) +
+  geom_line()
+```
+
