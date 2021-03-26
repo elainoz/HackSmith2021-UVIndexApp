@@ -388,6 +388,9 @@ zipfull_url &lt;- paste0(zipbase_url, &quot;95129/JSON&quot;)
 zipfull_url</code></pre>
 <pre><code>## [1] &quot;https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/95129/JSON&quot;</code></pre>
 <pre class="r"><code>uvdatazip &lt;- fromJSON(readLines(zipfull_url))</code></pre>
+<pre class="r"><code># get uv index hourly given city, state
+city_url &lt;- paste0(&quot;https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/washington/STATE/dc/JSON&quot;)
+uvdatacity &lt;- fromJSON(readLines(city_url))</code></pre>
 
 
 

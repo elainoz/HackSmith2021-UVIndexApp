@@ -26,4 +26,9 @@ zipfull_url
 uvdatazip <- fromJSON(readLines(zipfull_url))
 ```
 
+```{r}
+# get uv index hourly given city, state
+city_url <- paste0("https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/washington/STATE/dc/JSON")
+uvdatacity <- fromJSON(readLines(city_url))
+```
 
