@@ -1,6 +1,6 @@
 ---
 title: "UV Index Plots"
-author: "Elaine Zhang"
+author: "HackSmith 2021"
 date: "3/26/2021"
 output: html_document
 ---
@@ -26,11 +26,4 @@ zipfull_url
 uvdatazip <- fromJSON(readLines(zipfull_url))
 ```
 
-```{r}
-# get uv index hourly given city, state
-#https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/washington/STATE/dc/CSV 
-# citybase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/CITY/"
-# cityfull_url <- paste0(citybase_url, "washington/STATE/dc/CSV")
-# uvdatacity <- fromJSON(readLines(cityfull_url))
-```
 
