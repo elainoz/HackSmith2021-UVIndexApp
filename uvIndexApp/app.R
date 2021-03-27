@@ -78,7 +78,9 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          ),
                                                 tabPanel("How much sunscreen is enough?",
                                                          h4("- The general rule is to spread a layer of sunscreen over the skin areas that will be exposed to daylight (whether it’s face, neck or body), because not everyone has the same face or body size."),
-                                                         h4("- That being said, for some recommended specific amount: ¼ teaspoon for face alone, ½ teaspoon for face + neck and each arm, 1 teaspoon on each leg, the front of the torso and the back of the torso.")
+                                                         h4("- That being said, there is something called the Teaspoon Rule for you to follow: ¼ teaspoon for face alone, ½ teaspoon for face + neck and each arm, 1 teaspoon on each leg, the front of the torso and the back of the torso."),
+                                                         div(img(src = "Sunscreen_graphic-01.jpg", height = 670, width = 1000), style="text-align: center;"),
+                                                         h6("Source: Schneider J. The Teaspoon Rule of Applying Sunscreen. Arch Dermatol. 2002;138(6):838–839. doi:10.1001/archderm.138.6.838")
                                                          ),
                                                 tabPanel("Things to look for in sunscreen",
                                                          h4("- Broad-spectrum protection (protects against UVA and UVB rays)"),
