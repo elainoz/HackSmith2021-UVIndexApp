@@ -19,26 +19,36 @@ library(shinythemes)
 ui <- fluidPage(theme = shinytheme("simplex"),
     
     shinyUI(navbarPage("UV Index App",
-                       tabPanel("UV Index"),
-                       tabPanel("Skin Protection"),
-                       tabPanel("Resources"),
-                       tabPanel("Credits")
+        tabPanel("UV Index",  
+                 textInput("zipinput", "Enter your zipcode", "Zipcode"),
+                 div(id = "header", titlePanel("Explore your local UV index")),
+                 plotOutput("zipplot")
+                ),
+        
+        tabPanel("Skin Protection",
+                 sidebarPanel("Skincare tips to avoid UV damage"),
+                 ),
+        tabPanel("Resources",
+                 h3("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
+                 h3("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
+                 ),
+        tabPanel("Credits")
     )
     ),
     
-    # ask for zipcode
-    textInput("zipinput", "Enter your zipcode", "Zipcode"),
-
-    # Application title
-    div(id = "header",
-        titlePanel("Explore your local UV index")),
-    
-    # Sidebar with a slider input for number of bins 
-        
-        # plot of zip code
-        mainPanel(
-          plotOutput("zipplot")
-        )
+    # # ask for zipcode
+    # textInput("zipinput", "Enter your zipcode", "Zipcode"),
+    # 
+    # # Application title
+    # div(id = "header",
+    #     titlePanel("Explore your local UV index")),
+    # 
+    # # Sidebar with a slider input for number of bins 
+    #     
+    #     # plot of zip code
+    #     mainPanel(
+    #       plotOutput("zipplot")
+    #     )
 
     )
 
