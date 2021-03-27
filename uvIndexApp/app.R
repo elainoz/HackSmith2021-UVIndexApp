@@ -29,7 +29,8 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
                                             div(id = "header", titlePanel("Explore your local UV index")),
-                                            plotOutput("cityplot")),
+                                            plotOutput("cityplot")
+                                   ),
                                    
                                    tabPanel("Skin Protection",
                                             titlePanel("Navigation List"),
@@ -49,17 +50,15 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             )
                                    ),
                                    tabPanel("Resources",
-                                            h3("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
-                                            h3("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
+                                            h3("To find out more about the effect of UV rays, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
+                                            h4("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
+                                            h4("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
+                                        
                                    ),
                                    tabPanel("Credits")
+                                  )
+                        ),
                 )
-                ),
-                
-                
-                
-                
-)
 
 
 # Define server logic required to draw a histogram
