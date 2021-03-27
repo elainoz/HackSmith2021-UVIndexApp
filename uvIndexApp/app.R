@@ -73,7 +73,8 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                 tabPanel("General sunscreen tips",
                                                          h4("- Apply sunscreen every day! (even when you just stay in the shade most of the day)"),
                                                          h4("- Reapply sunscreen every 2 hours especially when staying outdoors and/or after swimming and sweating."),
-                                                         h4("- Remember to wear sunscreen for the lips too! (search for lip balms with SPF)")
+                                                         h4("- Remember to wear sunscreen for the lips too! (search for lip balms with SPF)"),
+                                                         div(img(src = "keep-calm-and-wear-sunscreen-3.png", height = 700, width = 600), style="text-align: center;")
                                                          ),
                                                 tabPanel("How much sunscreen is enough?",
                                                          h4("- The general rule is to spread a layer of sunscreen over the skin areas that will be exposed to daylight (whether it’s face, neck or body), because not everyone has the same face or body size."),
@@ -102,7 +103,9 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             h3("To find out more..."),
                                             h4("Skin cancer awareness organizations in the US"),
                                             h5(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
-                                            h5(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/")),
+                                            h5(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
+                                            
+                                            
                                         
                                    ),
                                    tabPanel("Our Team",
