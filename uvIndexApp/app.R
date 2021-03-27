@@ -26,7 +26,7 @@ ui <- fluidPage(
     ),
     
     # ask for zipcode
-    textInput("caption", "Enter your zipcode", "Zipcode"),
+    textInput("zipinput", "Enter your zipcode", "Zipcode"),
 
     # Application title
     div(id = "header",
@@ -47,9 +47,9 @@ ui <- fluidPage(
 server <- function(input, output) {
     
     # ask for user input - zip code
-    output$value <- renderText({ input$caption })
+    output$value <- renderText({ input$zipinput })
     
-    zipcode <- reactive(input$caption)
+    zipcode <- reactive(input$zipinput)
     # zipcode <- reactive({
     #     validate(
     #         need(is.character(input$caption) != TRUE, "Please input a zipcode")
