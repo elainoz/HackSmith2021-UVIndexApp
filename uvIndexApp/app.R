@@ -26,12 +26,12 @@ ui <- fluidPage(theme = shinytheme("simplex"),
     )
     ),
     
-    # ask for zipcode
-    textInput("zipinput", "Enter your zipcode", "Zipcode"),
-
     # Application title
     div(id = "header",
         titlePanel("Explore your local UV index")),
+    
+    # ask for zipcode
+    textInput("zipinput", "Enter your zipcode", "Zipcode"),
     
     # Sidebar with a slider input for number of bins 
         
