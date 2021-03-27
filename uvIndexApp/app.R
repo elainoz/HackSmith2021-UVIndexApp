@@ -75,13 +75,13 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h4("- Reapply sunscreen every 2 hours especially when staying outdoors and/or after swimming and sweating."),
                                                          h4("- Remember to wear sunscreen for the lips too! (search for lip balms with SPF)"),
                                                          div(img(src = "uvfilters.jpg", height = 600, width = 900), style="text-align: center;"),
-                                                         h6("Source:", a("Gothamista", href = "https://www.gothamista.com/tag/sunscreen/"))
+                                                         h6("Source:", a("Gothamista", href = "https://www.gothamista.com/tag/sunscreen/"), align = "center")
                                                          ),
                                                 tabPanel("How much sunscreen is enough?",
                                                          h4("- The general rule is to spread a layer of sunscreen over the skin areas that will be exposed to daylight (whether it’s face, neck or body), because not everyone has the same face or body size."),
                                                          h4("- That being said, there is something called the Teaspoon Rule for you to follow: ¼ teaspoon for face alone, ½ teaspoon for face + neck and each arm, 1 teaspoon on each leg, the front of the torso and the back of the torso."),
                                                          div(img(src = "Sunscreen_graphic-01.jpg", height = 670, width = 1000), style="text-align: center;"),
-                                                         h6("Source: Schneider J. The Teaspoon Rule of Applying Sunscreen. Arch Dermatol. 2002;138(6):838–839. doi:10.1001/archderm.138.6.838")
+                                                         h6("Source: Schneider J. The Teaspoon Rule of Applying Sunscreen. Arch Dermatol. 2002;138(6):838–839. doi:10.1001/archderm.138.6.838", align = "center")
                                                          ),
                                                 tabPanel("Things to look for in sunscreen",
                                                          h3("Look for these things every time you buy a sunscreen:"),
@@ -92,21 +92,27 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h5("+ Inorganic (physical/mineral) filters: zinc Oxide, titanium Dioxide. These filters are suitable for sensitive skin and are also reef-safe."),
                                                          h5("+ Organic (chemical) filters: Tinosorb S and M, Mexoryl SX (exclusive filter in L’Oreal sunscreens), Oxybenzone, Octinoxate, Avobenzone, Homosalate, etc. However, there are some concerns over certain chemical UV filters, such as Oxybenzone, Octisalate, Octocrylene and Homosalate, which are claimed to be toxic to coral reefs and cause hormone disruption for humans."),
                                                          h5("+ Some of these filters are FDA-approved: Avobenzone, Homosalate, Octocrylene, Octinoxate, Octisalate, Oxybenzone, Zinc Oxide, Titanium Dioxide; while some are only available in countries outside the US (such as European countries)"),
+                                                         div(img(src = "Inorganic vs Organic UV Filters Diagram.png", height = 500, width = 800), style="text-align: center;"),
+                                                         h6("Source:", a("Croda Personal Care", href = "https://www.crodapersonalcare.com/en-gb/discovery-zone/technology-platforms/inorganic-uv-filters"), align = "center")
                                                          ),
                                                 "Physical Protection",
                                                 tabPanel("Clothing",
-                                                         h4("Actually, there are a lot of sun protection clothes out there, and the variety is probably more than what you may think! For example,", a("Amazon", href = "https://www.amazon.com/Sun-Protection-Clothes/s?k=Sun+Protection+Clothes"), "offers a wide range of clothes that allow you to enjoy yourself under the sun.")
+                                                         h4("Actually, there are a lot of sun protection clothes out there, and the variety is probably more than what you may think! For example,", a("Amazon", href = "https://www.amazon.com/Sun-Protection-Clothes/s?k=Sun+Protection+Clothes"), "offers a wide range of clothes that allow you to enjoy yourself under the sun."),
+                                                         
+                                                         div(img(src = "sun-clothes.jpeg", height = 750, width = 850), style="text-align: center;"),
+                                                         h6("Source:", a("Golf Digest", href = "https://www.golfdigest.com/story/golf-style-heres-what-you-need-to-know-about-sun-protection-clothing"), align = "center")
                                                          ),
                                                 tabPanel("Parasols & Umbrellas",
-                                                         h4("Don't forget to equip yourself with a gorgeous parasol or umbrella when you go out under the sun! Again,", a("Amazon", href = "https://www.amazon.com/Parasol-Umbrella/s?k=Parasol+Umbrella"), "can be a good place to start finding your favorite.")
+                                                         h4("Don't forget to equip yourself with a gorgeous parasol or umbrella when you go out under the sun! Again,", a("Amazon", href = "https://www.amazon.com/Parasol-Umbrella/s?k=Parasol+Umbrella"), "can be a good place to start finding your favorite."),
+                                                         div(img(src = "umbrella.jpg", height = 700, width = 600), style="text-align: center;")
                                                          )
                                             )
                                    ),
                                    tabPanel("Resources",
-                                            h3("To find out more..."),
-                                            h4("Skin cancer awareness organizations in the US"),
-                                            h5(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
-                                            h5(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/")),
+                                            h2("To find out more..."),
+                                            h3("Skin cancer awareness organizations in the US"),
+                                            h4(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
+                                            h4(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/")),
                                             div(img(src = "keep-calm-and-wear-sunscreen-3.png", height = 700, width = 600), style="text-align: center;")
                                             
                                             
