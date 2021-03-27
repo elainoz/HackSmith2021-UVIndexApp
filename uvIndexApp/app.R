@@ -19,20 +19,19 @@ library(shinydashboard)
 # Define UI for application that draws a histogram
 
 ui <- fluidPage(theme = shinytheme("simplex"),
-                shinyUI(navbarPage("Zenith",
+                shinyUI(navbarPage("ZENITH",
                                    tabPanel("UV Rays",
-                                            h3("What is UV and why should you care?")),
-                                   tabPanel("UV Index - Zipcode",  
+                                            h2("What are UV rays and why should you care?")),
+                                   tabPanel("UV Index | Zipcode",  
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("zipinput", "Enter your zipcode", "33331"),
                                             plotOutput("zipplot")
                                    ),
-                                   tabPanel("UV Index - City,State",
+                                   tabPanel("UV Index | City",
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
-                                            plotOutput("cityplot")
-                                   ),
+                                            plotOutput("cityplot")),
                                    
                                    tabPanel("Skin Protection",
                                             titlePanel("Navigation List"),
@@ -52,15 +51,20 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             )
                                    ),
                                    tabPanel("Resources",
-                                            h3("To find out more about the effect of UV rays, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
+                                            h2("If you want to learn more, please check out the links below."),
                                             h4("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
                                             h4("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
-                                        
                                    ),
-                                   tabPanel("Credits")
-                                  )
-                        ),
+                                   tabPanel("Our Team",
+                                            h2("Who are we?"),
+                                            h4("We are a team of Smith College students! This is our first year at Smith and our first hackathon EVER!"))
                 )
+                ),
+                
+                
+                
+                
+)
 
 
 # Define server logic required to draw a histogram
