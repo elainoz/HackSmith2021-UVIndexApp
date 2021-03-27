@@ -20,7 +20,10 @@ library(shinythemes)
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("Zenith",
                                    tabPanel("UV Rays",
-                                            h3("What is UV and why should you care?")),
+                                            h3("What is UV and why should you care?"),
+                                            hr(),
+                                            print("Our data is from the Envirofacts Data Service API hosted by the United States Environmental Protection Agency (https://www.epa.gov/enviro/web-services#uvindex).  We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
+                                   ),
                                    tabPanel("UV Index - Zipcode",  
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("zipinput", "Enter your zipcode", "33331"),
@@ -67,8 +70,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             h4("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
                                             h4("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
                                         
-                                   ),
-                                   tabPanel("Credits")
+                                   )
                                   )
                         ),
                 )
