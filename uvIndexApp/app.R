@@ -148,11 +148,6 @@ server <- function(input, output) {
     output$value <- renderText({ input$caption })
     
     zipcode <- reactive(input$caption)
-    # zipcode <- reactive({
-    #     validate(
-    #         need(is.character(input$caption) != TRUE, "Please input a zipcode")
-    #     )
-    # })
     
     uvrisk <- data.frame(name = c("Low", "Moderate", "High", "Very High"),
                          imin = c(0,3,6,8),
@@ -161,18 +156,18 @@ server <- function(input, output) {
         mutate(medy = imin + floor((imax-imin)/2))
     
     output$zipplot <- renderPlot({
-        
+
         zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
         zipfull_url <- paste0(zipbase_url, zipcode(), "/JSON")
         zipdata <- as.data.frame(fromJSON(readLines(zipfull_url)))
-        
+
         zipdata <- zipdata %>%
             mutate(NEW_DATE = mdy_h(DATE_TIME))
-        
+
         ggplot() +
             theme_light() +
-            geom_rect(data = uvrisk, aes(xmin = c(zipdata$NEW_DATE[1], zipdata$NEW_DATE[1], zipdata$NEW_DATE[1], zipdata$NEW_DATE[1]), 
-                                         xmax = c(zipdata$NEW_DATE[21], zipdata$NEW_DATE[21], zipdata$NEW_DATE[21], zipdata$NEW_DATE[21]), 
+            geom_rect(data = uvrisk, aes(xmin = c(zipdata$NEW_DATE[1], zipdata$NEW_DATE[1], zipdata$NEW_DATE[1], zipdata$NEW_DATE[1]),
+                                         xmax = c(zipdata$NEW_DATE[21], zipdata$NEW_DATE[21], zipdata$NEW_DATE[21], zipdata$NEW_DATE[21]),
                                          ymin = imin, ymax = imax, fill = mycolor)) +
             geom_text(data = uvrisk, aes(x = zipdata$NEW_DATE[3], y = medy, label = name, size = 3))+
             geom_line(data = zipdata, aes(x = NEW_DATE, y = UV_VALUE)) +
@@ -180,9 +175,9 @@ server <- function(input, output) {
             ggtitle("UV Index in the Past Day") +
             theme(axis.title.x = element_blank(),
                   legend.position = "None")
-        
+
     })
-    
+
     
     city <- reactive(input$cityinput)
     state <- reactive(input$stateinput)
