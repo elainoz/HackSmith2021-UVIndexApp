@@ -36,7 +36,7 @@ ui <- fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
           plotOutput("zipplot")
-        ),
+        )
 
     )
 
@@ -81,8 +81,6 @@ server <- function(input, output) {
                   legend.position = "None")
         
     })
-    
-    output$
 }
 
 # Run the application 
