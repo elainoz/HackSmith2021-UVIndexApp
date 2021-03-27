@@ -2,6 +2,25 @@
 
 **Zenith** is an app that displays the UV Index in the past day, given a city and state. Our goals is to spread knowledge and awareness of Ultraviolet Rays, skin protection, and skin cancer.
 
+### Running the App
+
+<br />
+
+> Install the following packages in R: 
+
+- shiny
+- tidyverse  
+- lubridate  
+- rjson  
+- jsonlite  
+- RCurl
+- shinythemes
+
+> Run:
+
+- uvIndexApp/app.R
+
+
 ### Credits & Links
 
 <br />
@@ -21,6 +40,7 @@
 - [SPFs on Suncreens](https://labmuffin.com/spf-changes-how-much-sunscreen-use/)
 
 <br />
+
 
 ---
 HackSmith2021 Submission
