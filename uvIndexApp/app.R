@@ -74,7 +74,8 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h4("- Apply sunscreen every day! (even when you just stay in the shade most of the day)"),
                                                          h4("- Reapply sunscreen every 2 hours especially when staying outdoors and/or after swimming and sweating."),
                                                          h4("- Remember to wear sunscreen for the lips too! (search for lip balms with SPF)"),
-                                                         div(img(src = "keep-calm-and-wear-sunscreen-3.png", height = 700, width = 600), style="text-align: center;")
+                                                         div(img(src = "uvfilters.jpg", height = 600, width = 900), style="text-align: center;"),
+                                                         h6("Source:", a("Gothamista", href = "https://www.gothamista.com/tag/sunscreen/"))
                                                          ),
                                                 tabPanel("How much sunscreen is enough?",
                                                          h4("- The general rule is to spread a layer of sunscreen over the skin areas that will be exposed to daylight (whether it’s face, neck or body), because not everyone has the same face or body size."),
@@ -83,14 +84,14 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h6("Source: Schneider J. The Teaspoon Rule of Applying Sunscreen. Arch Dermatol. 2002;138(6):838–839. doi:10.1001/archderm.138.6.838")
                                                          ),
                                                 tabPanel("Things to look for in sunscreen",
+                                                         h3("Look for these things every time you buy a sunscreen:"),
                                                          h4("- Broad-spectrum protection (protects against UVA and UVB rays)"),
                                                          h4("- SPF 30 or higher"),
                                                          h4("- Water resistance (up to 40 minutes in water)"),
                                                          h4("- Types of UV filters in the sunscreen"),
-                                                         h5("+ Inorganic (physical/mineral) filters: Zinc Oxide, Titanium Dioxide. Also reef-safe. More suitable for people with sensitive skin."),
-                                                         h5("+ Organic (chemical) filters: Tinosorb S and M, Mexoryl SX (exclusive filter in L’Oreal sunscreens), Oxybenzone, Octinoxate, Avobenzone, Homosalate, etc."),
-                                                         h5("+ Popular UV filters that are FDA-approved: Avobenzone, Homosalate, Octocrylene, Octinoxate, Octisalate, Oxybenzone, Zinc Oxide, Titanium Dioxide"),
-                                                         h5("+ Concerns over harmful chemical UV filters: Oxybenzone, Octisalate, Octocrylene, Homosalate - hormone disruption, toxic to coral reefs")
+                                                         h5("+ Inorganic (physical/mineral) filters: zinc Oxide, titanium Dioxide. These filters are suitable for sensitive skin and are also reef-safe."),
+                                                         h5("+ Organic (chemical) filters: Tinosorb S and M, Mexoryl SX (exclusive filter in L’Oreal sunscreens), Oxybenzone, Octinoxate, Avobenzone, Homosalate, etc. However, there are some concerns over certain chemical UV filters, such as Oxybenzone, Octisalate, Octocrylene and Homosalate, which are claimed to be toxic to coral reefs and cause hormone disruption for humans."),
+                                                         h5("+ Some of these filters are FDA-approved: Avobenzone, Homosalate, Octocrylene, Octinoxate, Octisalate, Oxybenzone, Zinc Oxide, Titanium Dioxide; while some are only available in countries outside the US (such as European countries)"),
                                                          ),
                                                 "Physical Protection",
                                                 tabPanel("Clothing",
@@ -105,7 +106,8 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             h3("To find out more..."),
                                             h4("Skin cancer awareness organizations in the US"),
                                             h5(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
-                                            h5(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
+                                            h5(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/")),
+                                            div(img(src = "keep-calm-and-wear-sunscreen-3.png", height = 700, width = 600), style="text-align: center;")
                                             
                                             
                                         
