@@ -120,7 +120,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                         
                                    ),
                                    tabPanel("Our Team",
-                                            h4("We are all on our first year at Smith and this is our first hackathon."))
+                                            h4("We are 4 undergraduates at Smith College and this is our first hackathon."))
                     )
             ),
                 
