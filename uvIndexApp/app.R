@@ -93,7 +93,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h4("everyone has the same face or body size."),
                                                          h4("- That being said, there is something called the Teaspoon Rule for you to follow: ¼ teaspoon for face alone, ½ teaspoon for face + neck and each arm, 1"),
                                                          h4("teaspoon on each leg, the front of the torso and the back of the torso."),
-                                                         div(img(src = "Sunscreen_graphic-01.jpg", height = 670, width = 1000), style="text-align: center;"),
+                                                         div(img(src = "Sunscreen_graphic-01.jpg", height = 600, width = 870), style="text-align: center;"),
                                                          h6("Source: Schneider J. The Teaspoon Rule of Applying Sunscreen. Arch Dermatol. 2002;138(6):838–839. doi:10.1001/archderm.138.6.838", align = "center")
                                                          ),
                                                 tabPanel("Things to look for in sunscreen",
@@ -115,7 +115,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h4("Actually, there are a lot of sun protection clothes out there, and the variety is probably more than what you may think! For example,", a("Amazon", href = "https://www.amazon.com/Sun-Protection-Clothes/s?k=Sun+Protection+Clothes"), "offers a wide"),
                                                          h4("range of clothes that allow you to enjoy yourself under the sun."),
                                                          
-                                                         div(img(src = "sun-clothes.jpeg", height = 750, width = 850), style="text-align: center;"),
+                                                         div(img(src = "sun-clothes.jpeg", height = 700, width = 800), style="text-align: center;"),
                                                          h6("Source:", a("Golf Digest", href = "https://www.golfdigest.com/story/golf-style-heres-what-you-need-to-know-about-sun-protection-clothing"), align = "center")
                                                          ),
                                                 tabPanel("Parasols & Umbrellas",
