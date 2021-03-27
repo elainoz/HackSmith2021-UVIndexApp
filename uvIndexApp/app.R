@@ -20,7 +20,7 @@ library(shinythemes)
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("ZENITH",
                                    tabPanel("UV Rays",
-                                            h3("What is UV and why should you care?"),
+                                            h2("What is UV and why should you care?"),
 
                                    ),
                                    tabPanel("UV Index | Zipcode",  
@@ -70,8 +70,10 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             )
                                    ),
                                    tabPanel("Resources",
-
-                                            h3("To find out more about the effect of UV rays, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
+                                            
+                                            h2("To find out more..."),
+                                            hr(),
+                                            h3("Skin cancer awareness organizations in the US"),
                                             h4(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
                                             h4(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
 
