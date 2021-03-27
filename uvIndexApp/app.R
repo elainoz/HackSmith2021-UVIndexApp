@@ -12,7 +12,7 @@ library(shinythemes)
 
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("ZENITH",
-                                   tabPanel("Homepage",
+                                   tabPanel("UV Info",
                                             titlePanel("UV Rays"),
                                             
                                             navlistPanel(widths = c(2,8),
