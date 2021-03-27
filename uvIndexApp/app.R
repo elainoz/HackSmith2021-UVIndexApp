@@ -20,11 +20,11 @@ library(shinythemes)
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("ZENITH",
                                    tabPanel("UV Rays",
-                                            h3("What is UV and why should you care?"),
+                                            h2("What is UV and why should you care?"),
                                             hr(),
                                             print("Our data is from the Envirofacts Data Service API hosted by the United States Environmental Protection Agency (https://www.epa.gov/enviro/web-services#uvindex).  We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
                                    ),
-                                   tabPanel("UV Index - Zipcode",  
+                                   tabPanel("UV Index | Zipcode",  
 
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("zipinput", "Enter your zipcode", "33331"),
@@ -34,7 +34,8 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
-                                            plotOutput("cityplot")),
+                                            plotOutput("cityplot")
+                                   ),
                                    
                                    tabPanel("Skin Protection", 
                                             titlePanel("Navigation List"),
@@ -72,10 +73,11 @@ ui <- fluidPage(theme = shinytheme("simplex"),
 
                                         
                                    )
-                                  )
-                        ),
-
-                )
+                    )
+            ),
+                
+                             
+)
                 
                 
                 
