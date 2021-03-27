@@ -68,7 +68,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                    tabPanel("Skin Protection", 
                                             titlePanel("Information"),
                                             
-                                            navlistPanel(widths = c(4,8),
+                                            navlistPanel(widths = c(2,8),
                                                 "Sunscreen",
                                                 tabPanel("General sunscreen tips",
                                                          h4("- Apply sunscreen every day! (even when you just stay in the shade most of the day)"),
