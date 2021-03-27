@@ -17,6 +17,7 @@ library(RCurl)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     
+<<<<<<< HEAD
     shinyUI(navbarPage("UV App Home Page",
                        tabPanel("Local UV Index Plot", 
                                 textInput("caption", "Enter your zipcode", "Zipcode"),
@@ -40,6 +41,41 @@ ui <- fluidPage(
 #        mainPanel(
 #          plotOutput("zipplot")
 #        )
+=======
+    shinyUI(navbarPage("UV Index App",
+        tabPanel("UV Index",  
+                 textInput("zipinput", "Enter your zipcode", "Zipcode"),
+                 div(id = "header", titlePanel("Explore your local UV index")),
+                 plotOutput("zipplot")
+                ),
+        
+        tabPanel("Skin Protection",
+                 sidebarPanel("Skincare tips to avoid UV damage"),
+                 ),
+        tabPanel("Resources",
+                 h3("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
+                 h3("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
+                 ),
+        tabPanel("Credits")
+    )
+    ),
+    
+    # # ask for zipcode
+    # textInput("zipinput", "Enter your zipcode", "Zipcode"),
+    # 
+    # # Application title
+    # div(id = "header",
+    #     titlePanel("Explore your local UV index")),
+    # 
+    # # Sidebar with a slider input for number of bins 
+    #     
+    #     # plot of zip code
+    #     mainPanel(
+    #       plotOutput("zipplot")
+    #     )
+
+    )
+>>>>>>> 49970c48d3f30c1d5187cb54175f73c623564ec8
 
 )
 
