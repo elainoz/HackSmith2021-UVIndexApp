@@ -14,7 +14,6 @@ library(rjson)
 library(jsonlite)
 library(RCurl)
 library(shinythemes)
-library(shinydashboard)
 
 # Define UI for application that draws a histogram
 
@@ -34,21 +33,33 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             plotOutput("cityplot")
                                    ),
                                    
-                                   tabPanel("Skin Protection",
+                                   tabPanel("Skin Protection", 
                                             titlePanel("Navigation List"),
                                             
-                                            navlistPanel(
-                                                "Sunscreen tips",
-                                                tabPanel("Sunscreen ingredients"),
+                                            navlistPanel(widths = c(2,8),
+                                                "Sunscreen",
+                                                tabPanel("General sunscreen tips",
+                                                         h4("- Apply sunscreen every day! (even when you just stay in the shade most of the day)"),
+                                                         h4("- Reapply sunscreen every 2 hours especially when staying outdoors and/or after swimming and sweating."),
+                                                         h4("- Remember to wear sunscreen for the lips too! (search for lip balms with SPF)")
+                                                         ),
                                                 tabPanel("How much sunscreen is enough?",
                                                          h4("- The general rule is to spread a layer of sunscreen over the skin areas that will be exposed to daylight (whether it’s face, neck or body), because not everyone has the same face or body size."),
                                                          h4("- That being said, for some recommended specific amount: ¼ teaspoon for face alone, ½ teaspoon for face + neck and each arm, 1 teaspoon on each leg, the front of the torso and the back of the torso.")
                                                          ),
+                                                tabPanel("Things to look for in sunscreen",
+                                                         h4("- Broad-spectrum protection (protects against UVA and UVB rays)"),
+                                                         h4("- SPF 30 or higher"),
+                                                         h4("- Water resistance (up to 40 minutes in water)"),
+                                                         h4("- Types of UV filters in the sunscreen"),
+                                                         h5("+ Inorganic (physical/mineral) filters: Zinc Oxide, Titanium Dioxide. Also reef-safe. More suitable for people with sensitive skin."),
+                                                         h5("+ Organic (chemical) filters: Tinosorb S and M, Mexoryl SX (exclusive filter in L’Oreal sunscreens), Oxybenzone, Octinoxate, Avobenzone, Homosalate, etc."),
+                                                         h5("+ Popular UV filters that are FDA-approved: Avobenzone, Homosalate, Octocrylene, Octinoxate, Octisalate, Oxybenzone, Zinc Oxide, Titanium Dioxide"),
+                                                         h5("+ Concerns over harmful chemical UV filters: Oxybenzone, Octisalate, Octocrylene, Homosalate - hormone disruption, toxic to coral reefs")
+                                                         ),
                                                 "Physical protection",
                                                 tabPanel("Clothing"),
-                                                tabPanel("Parasols/Umbrellas"),
-                                                "-----",
-                                                tabPanel("Component 5")
+                                                tabPanel("Parasols/Umbrellas")
                                             )
                                    ),
                                    tabPanel("Resources",
