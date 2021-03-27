@@ -21,19 +21,21 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("Zenith",
                                    tabPanel("UV Rays",
                                             h3("What is UV and why should you care?"),
-                                            hr(),
-                                            print("Our data is from the Envirofacts Data Service API hosted by the United States Environmental Protection Agency (https://www.epa.gov/enviro/web-services#uvindex).  We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
                                    ),
                                    tabPanel("UV Index - Zipcode",  
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("zipinput", "Enter your zipcode", "33331"),
-                                            plotOutput("zipplot")
+                                            plotOutput("zipplot"),
+                                            hr(),
+                                            h6("Our data is from the Envirofacts Data Service API hosted by the", a("United States Environmental Protection Agency.", href = "https://www.epa.gov/enviro/web-services#uvindex"),  "We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
                                    ),
                                    tabPanel("UV Index - City,State",
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
-                                            plotOutput("cityplot")
+                                            plotOutput("cityplot"),
+                                            hr(),
+                                            h6("Our data is from the Envirofacts Data Service API hosted by the", a("United States Environmental Protection Agency.", href = "https://www.epa.gov/enviro/web-services#uvindex"),  "We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
                                    ),
                                    
                                    tabPanel("Skin Protection", 
@@ -67,8 +69,8 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                    ),
                                    tabPanel("Resources",
                                             h3("To find out more about the effect of UV rays, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
-                                            h4("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
-                                            h4("The National Council on Skin Cancer Prevention, https://skincancerprevention.org/")
+                                            h4(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
+                                            h4(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
                                         
                                    )
                                   )
