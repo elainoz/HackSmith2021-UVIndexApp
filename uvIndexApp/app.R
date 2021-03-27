@@ -60,7 +60,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             hr(),
                                             h6("Our data is from the Envirofacts Data Service API hosted by the", a("United States Environmental Protection Agency.", href = "https://www.epa.gov/enviro/web-services#uvindex"),  "We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
                                    ),
-                                   tabPanel("UV Index | City",
+                                   tabPanel("UV Index | City/State",
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
