@@ -19,6 +19,8 @@ library(shinythemes)
 
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("UV Index App",
+                                   tabPanel("Home",
+                                            h3("What is UV and why should you care?")),
                                    tabPanel("UV Index - Zipcode",  
                                             textInput("zipinput", "Enter your zipcode", "Zipcode"),
                                             div(id = "header", titlePanel("Explore your local UV index")),
