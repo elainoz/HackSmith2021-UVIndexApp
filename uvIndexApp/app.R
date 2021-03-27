@@ -20,7 +20,56 @@ library(shinythemes)
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("Zenith",
                                    tabPanel("UV Rays",
-                                            h3("What is UV and why should you care?"),
+                                            titlePanel("Navigation List"),
+                                            
+                                            navlistPanel(widths = c(2,8),
+                                                "UV Light Information",
+                                                tabPanel("What is Ultraviolet (UV) Light?",
+                                                         h4("Ultraviolet (UV) radiation is a type of energy that is produced by the sun. It makes black-light posters glow and is responsible for our summer tans, and sunburns! Sometimes, too much UV exposure can cause us harm, such as skin cancer and eye damage."),
+                                                         
+                                                         ),
+                                                tabPanel("Types of Ultraviolet Light",
+                                                         h4(strong("UVA rays (aging rays):")),
+                                                         h5(""),
+                                                         h4("- These can prematurely age your skin, causing wrinkles and age spots, and can pass through window glass."),
+                                                         h5(HTML('&nbsp;')),
+                                                         h4(strong("UVB rays (or burning rays):")),
+                                                         h4("- These are the primary cause of sunburn and are blocked by window glass."),
+                                                ),
+                                                "UV Index Information",
+                                                tabPanel("What is the UV index?",
+                                                         h4("The National Weather Service, in conjunction with the US Environmental Protection Agency, published the UV Index in 1994. It’s purpose is to aid Americans in deciding and planning their outdoor adventures in hopes of avoiding overexposure to radiation from the sun’s rays, which may lead to long term health problems. "),
+                                                         
+                                                ),
+                                                tabPanel("Why should I care about the UV index?",
+                                                         h4("Overexposure to the sun’s UV radiation can have many effects ranging from sunburns to skin cancers. Paying attention to the UV index can hopefully offer Americans access to information that can prevent any health problems. "),
+                                                
+                                                )
+                                            ),
+                                                
+                                                
+                                                
+                                               
+                                            
+                                           # h2("What is Ultraviolet (UV) Light?"),
+                                           # h4("- Ultraviolet (UV) radiation is a type of energy that is produced by the sun. It makes black-light posters glow and is responsible for our summer tans, and sunburns! Sometimes, too much UV exposure can cause us harm, such as skin cancer and eye damage. "),
+                                            
+                                           # h2(""),
+                                          #  h2("Types of Ultraviolet Light"),
+                                           # h4("UVA rays (aging rays):"),
+                                           # h4("-     These can prematurely age your skin, causing wrinkles and age spots, and can pass through window glass."),
+                                          #  h4("UVB rays (or burning rays):"),
+                                           # h4("These are the primary cause of sunburn and are blocked by window glass."),
+                                            
+                                            #h2(""),
+                                           # h2("What is the UV index?"),
+                                           # h4("The National Weather Service, in conjunction with the US Environmental Protection Agency, published the UV Index in 1994. It’s purpose is to aid Americans in deciding and planning their outdoor adventures in hopes of avoiding overexposure to radiation from the sun’s rays, which may lead to long term health problems. "),
+                                            
+                                           # h2(""),
+                                           # h2("Why should I care about the UV index?"),
+                                           # h4("Overexposure to the sun’s UV radiation can have many effects ranging from sunburns to skin cancers. Paying attention to the UV index can hopefully offer Americans access to information that can prevent any health problems. "),
+                                            
+                                            
                                    ),
                                    tabPanel("UV Index - Zipcode",  
                                             div(id = "header", titlePanel("Explore your local UV index")),
