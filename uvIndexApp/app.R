@@ -14,6 +14,7 @@ library(rjson)
 library(jsonlite)
 library(RCurl)
 library(shinythemes)
+library(shinydashboard)
 
 # Define UI for application that draws a histogram
 
@@ -33,7 +34,21 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             plotOutput("cityplot")),
                                    
                                    tabPanel("Skin Protection",
-                                            sidebarPanel("Skincare tips to avoid UV damage"),
+                                            titlePanel("Navigation List"),
+                                            
+                                            navlistPanel(
+                                                "Sunscreen tips",
+                                                tabPanel("Sunscreen ingredients"),
+                                                tabPanel("How much sunscreen is enough?",
+                                                         h4("- The general rule is to spread a layer of sunscreen over the skin areas that will be exposed to daylight (whether it’s face, neck or body), because not everyone has the same face or body size."),
+                                                         h4("- That being said, for some recommended specific amount: ¼ teaspoon for face alone, ½ teaspoon for face + neck and each arm, 1 teaspoon on each leg, the front of the torso and the back of the torso.")
+                                                         ),
+                                                "Physical protection",
+                                                tabPanel("Clothing"),
+                                                tabPanel("Parasols/Umbrellas"),
+                                                "-----",
+                                                tabPanel("Component 5")
+                                            )
                                    ),
                                    tabPanel("Resources",
                                             h3("The Skin Cancer Foundation: https://www.skincancer.org/"), #can someone help me make these hyperlinks?
