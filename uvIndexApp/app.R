@@ -63,8 +63,12 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h5("+ Concerns over harmful chemical UV filters: Oxybenzone, Octisalate, Octocrylene, Homosalate - hormone disruption, toxic to coral reefs")
                                                          ),
                                                 "Physical protection",
-                                                tabPanel("Clothing"),
-                                                tabPanel("Parasols/Umbrellas")
+                                                tabPanel("Clothing",
+                                                         h3("Actually, there are a lot of sun protection clothes out there, and the variety is probably more than what you may think! For example,", a("Amazon", href = "https://www.amazon.com/Sun-Protection-Clothes/s?k=Sun+Protection+Clothes"), "offers a wide range of clothes that allow you to enjoy yourself under the sun.")
+                                                         ),
+                                                tabPanel("Parasols/Umbrellas",
+                                                         h3("Don't forget to equip yourself with a gorgeous parasol/umbrella when you go out under the sun! Again,", a("Amazon", href = "https://www.amazon.com/Parasol-Umbrella/s?k=Parasol+Umbrella"), "can be a good place to start finding your favorite parasol/umbrella.")
+                                                         )
                                             )
                                    ),
                                    tabPanel("Resources",
