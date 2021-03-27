@@ -2,7 +2,11 @@
 
 **Zenith** is an app that displays the UV Index in the past day, given a city and state. Our goals is to spread knowledge and awareness of Ultraviolet Rays, skin protection, and skin cancer.
 
-### Running the App
+### Running the App on the Server
+
+> [Zenith Website](https://elainoz.shinyapps.io/Zenith-UVIndexApp/)
+
+### Running the App Locally
 
 <br />
 
