@@ -20,9 +20,9 @@ library(shinythemes)
 ui <- fluidPage(theme = shinytheme("simplex"),
                 shinyUI(navbarPage("ZENITH",
                                    tabPanel("UV Rays",
-                                            titlePanel("Navigation List"),
+                                            titlePanel("UV Rays"),
                                             
-                                            navlistPanel(widths = c(2,8),
+                                            navlistPanel(widths = c(4,8),
                                                 "UV Light Information",
                                                 tabPanel("What is Ultraviolet (UV) Light?",
                                                          h4("Ultraviolet (UV) radiation is a type of energy that is produced by the sun. It makes black-light posters glow and is responsible for our summer tans, and sunburns! Sometimes, too much UV exposure can cause us harm, such as skin cancer and eye damage."),
@@ -66,7 +66,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                    ),
                                    
                                    tabPanel("Skin Protection", 
-                                            titlePanel("Information"),
+                                            titlePanel("Skin Protection"),
                                             
                                             navlistPanel(widths = c(2,8),
                                                 "Sunscreen",
@@ -99,11 +99,11 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             )
                                    ),
                                    tabPanel("Resources",
-                                            h2("To find out more..."),
+                                            h3("To find out more..."),
                                             hr(),
-                                            h3("Skin cancer awareness organizations in the US"),
-                                            h4(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
-                                            h4(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
+                                            h4("Skin cancer awareness organizations in the US"),
+                                            h5(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
+                                            h5(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
 
                                         
                                    )
