@@ -19,16 +19,18 @@ library(shinydashboard)
 # Define UI for application that draws a histogram
 
 ui <- fluidPage(theme = shinytheme("simplex"),
-                shinyUI(navbarPage("UV Index App",
+                shinyUI(navbarPage("Zenith",
+                                   tabPanel("UV Rays",
+                                            h3("What is UV and why should you care?")),
                                    tabPanel("UV Index - Zipcode",  
-                                            textInput("zipinput", "Enter your zipcode", "33331"),
                                             div(id = "header", titlePanel("Explore your local UV index")),
+                                            textInput("zipinput", "Enter your zipcode", "33331"),
                                             plotOutput("zipplot")
                                    ),
                                    tabPanel("UV Index - City,State",
+                                            div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
-                                            div(id = "header", titlePanel("Explore your local UV index")),
                                             plotOutput("cityplot")
                                    ),
                                    
