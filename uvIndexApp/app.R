@@ -45,7 +45,7 @@ server <- function(input, output) {
     #         need(is.character(input$caption) != TRUE, "Please input a zipcode")
     #     )
     # })
-    # 
+
     output$indexplot <- renderPlot({
         
         uvrisk <- data.frame(name = c("Low", "Moderate", "High", "Very High"),
