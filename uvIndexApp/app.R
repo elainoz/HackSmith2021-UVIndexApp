@@ -13,9 +13,10 @@ library(lubridate)
 library(rjson)
 library(jsonlite)
 library(RCurl)
+library(shinythemes)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
+ui <- fluidPage(theme = shinytheme("simplex"),
     
     shinyUI(navbarPage("UV Index App",
                        tabPanel("UV Index"),
