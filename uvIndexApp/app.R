@@ -17,21 +17,28 @@ library(RCurl)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     
-    textInput("caption", "Enter your zipcode.", "Zipcode"),
+    shinyUI(navbarPage("UV Index App",
+                       tabPanel("UV Index"),
+                       tabPanel("Skin Protection"),
+                       tabPanel("Resources")
+    )
+    ),
+    
+    textInput("caption", "Enter your zipcode", "Zipcode"),
 
-    
     # Application title
-    
     div(id = "header",
-        titlePanel("Explore your UV Index")),
+        titlePanel("Explore your local UV index")),
     
     # Sidebar with a slider input for number of bins 
         
         # Show a plot of the generated distribution
         mainPanel(
           plotOutput("indexplot")
-        )
+        ),
+
     )
+
 
 
 # Define server logic required to draw a histogram
