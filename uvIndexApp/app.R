@@ -58,6 +58,12 @@ server <- function(input, output) {
     #         need(is.character(input$caption) != TRUE, "Please input a zipcode")
     #     )
     # })
+    
+    uvrisk <- data.frame(name = c("Low", "Moderate", "High", "Very High"),
+                         imin = c(0,3,6,8),
+                         imax = c(3,6,8,11),
+                         mycolor = c("A", "B", "C", "D")) %>%
+        mutate(medy = imin + floor((imax-imin)/2))
 
     output$zipplot <- renderPlot({
         
