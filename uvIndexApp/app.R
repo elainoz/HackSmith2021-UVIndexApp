@@ -20,7 +20,8 @@ ui <- fluidPage(
     shinyUI(navbarPage("UV Index App",
                        tabPanel("UV Index"),
                        tabPanel("Skin Protection"),
-                       tabPanel("Resources")
+                       tabPanel("Resources"),
+                       tabPanel("Credits")
     )
     ),
     
