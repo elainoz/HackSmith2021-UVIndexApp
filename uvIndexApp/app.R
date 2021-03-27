@@ -18,18 +18,20 @@ library(shinythemes)
 # Define UI for application that draws a histogram
 
 ui <- fluidPage(theme = shinytheme("simplex"),
-                shinyUI(navbarPage("Zenith",
+                shinyUI(navbarPage("ZENITH",
                                    tabPanel("UV Rays",
-                                            h3("What is UV and why should you care?"),
+                                            h2("What is UV and why should you care?"),
+
                                    ),
-                                   tabPanel("UV Index - Zipcode",  
+                                   tabPanel("UV Index | Zipcode",  
+
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("zipinput", "Enter your zipcode", "33331"),
                                             plotOutput("zipplot"),
                                             hr(),
                                             h6("Our data is from the Envirofacts Data Service API hosted by the", a("United States Environmental Protection Agency.", href = "https://www.epa.gov/enviro/web-services#uvindex"),  "We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
                                    ),
-                                   tabPanel("UV Index - City,State",
+                                   tabPanel("UV Index | City",
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
                                             textInput("stateinput", "Enter your state", "ca"),
@@ -39,9 +41,9 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                    ),
                                    
                                    tabPanel("Skin Protection", 
-                                            titlePanel("Navigation List"),
+                                            titlePanel("Information"),
                                             
-                                            navlistPanel(widths = c(2,8),
+                                            navlistPanel(widths = c(4,8),
                                                 "Sunscreen",
                                                 tabPanel("General sunscreen tips",
                                                          h4("- Apply sunscreen every day! (even when you just stay in the shade most of the day)"),
@@ -62,24 +64,35 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                                          h5("+ Popular UV filters that are FDA-approved: Avobenzone, Homosalate, Octocrylene, Octinoxate, Octisalate, Oxybenzone, Zinc Oxide, Titanium Dioxide"),
                                                          h5("+ Concerns over harmful chemical UV filters: Oxybenzone, Octisalate, Octocrylene, Homosalate - hormone disruption, toxic to coral reefs")
                                                          ),
-                                                "Physical protection",
+                                                "Physical Protection",
                                                 tabPanel("Clothing",
-                                                         h3("Actually, there are a lot of sun protection clothes out there, and the variety is probably more than what you may think! For example,", a("Amazon", href = "https://www.amazon.com/Sun-Protection-Clothes/s?k=Sun+Protection+Clothes"), "offers a wide range of clothes that allow you to enjoy yourself under the sun.")
+                                                         h4("Actually, there are a lot of sun protection clothes out there, and the variety is probably more than what you may think! For example,", a("Amazon", href = "https://www.amazon.com/Sun-Protection-Clothes/s?k=Sun+Protection+Clothes"), "offers a wide range of clothes that allow you to enjoy yourself under the sun.")
                                                          ),
-                                                tabPanel("Parasols/Umbrellas",
-                                                         h3("Don't forget to equip yourself with a gorgeous parasol/umbrella when you go out under the sun! Again,", a("Amazon", href = "https://www.amazon.com/Parasol-Umbrella/s?k=Parasol+Umbrella"), "can be a good place to start finding your favorite parasol/umbrella.")
+                                                tabPanel("Parasols & Umbrellas",
+                                                         h4("Don't forget to equip yourself with a gorgeous parasol or umbrella when you go out under the sun! Again,", a("Amazon", href = "https://www.amazon.com/Parasol-Umbrella/s?k=Parasol+Umbrella"), "can be a good place to start finding your favorite.")
                                                          )
                                             )
                                    ),
                                    tabPanel("Resources",
-                                            h3("To find out more about the effect of UV rays on human skin, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
+                                            h2("To find out more..."),
+                                            hr(),
+                                            h3("Skin cancer awareness organizations in the US"),
                                             h4(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
                                             h4(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
+
                                         
                                    )
-                                  )
-                        ),
-                )
+                    )
+            ),
+                
+                             
+)
+                
+                
+                
+                
+                
+
 
 
 # Define server logic required to draw a histogram
