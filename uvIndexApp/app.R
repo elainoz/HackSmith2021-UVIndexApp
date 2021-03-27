@@ -35,7 +35,7 @@ ui <- fluidPage(
         
         # Show a plot of the generated distribution
         mainPanel(
-          plotOutput("indexplot")
+          plotOutput("zipplot")
         ),
 
     )
@@ -54,7 +54,7 @@ server <- function(input, output) {
     #     )
     # })
 
-    output$indexplot <- renderPlot({
+    output$zipplot <- renderPlot({
         
         uvrisk <- data.frame(name = c("Low", "Moderate", "High", "Very High"),
                              imin = c(0,3,6,8),
@@ -81,6 +81,8 @@ server <- function(input, output) {
                   legend.position = "None")
         
     })
+    
+    output$
 }
 
 # Run the application 
