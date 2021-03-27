@@ -17,41 +17,35 @@ library(RCurl)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     
+    textInput("caption", "Enter your zipcode.", "Zipcode"),
+
+    
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
     
     div(id = "header",
         titlePanel("Explore your UV Index")),
     
     # Sidebar with a slider input for number of bins 
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
         
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("indexplot")
+          plotOutput("indexplot")
         )
     )
-)
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
     
-    output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-        
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    })
+    output$value <- renderText({ input$caption })
     
+    zipcode <- reactive(input$caption)
+    # zipcode <- reactive({
+    #     validate(
+    #         need(is.character(input$caption) != TRUE, "Please input a zipcode")
+    #     )
+    # })
+    # 
     output$indexplot <- renderPlot({
         
         uvrisk <- data.frame(name = c("Low", "Moderate", "High", "Very High"),
@@ -61,8 +55,8 @@ server <- function(input, output) {
             mutate(medy = imin + floor((imax-imin)/2))
         
         zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
-        zipfull_url <- paste0(zipbase_url, "95129/JSON")
-        uvdf <- fromJSON(readLines(zipfull_url))
+        zipfull_url <- paste0(zipbase_url, zipcode(), "/JSON")
+        uvdf <- as.data.frame(fromJSON(readLines(zipfull_url)))
         
         uvdf <- uvdf %>%
             mutate(NEW_DATE = mdy_h(DATE_TIME))
