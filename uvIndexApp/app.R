@@ -52,14 +52,6 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             ),
                                                 
                                    ),
-                                   tabPanel("UV Index | Zipcode",  
-
-                                            div(id = "header", titlePanel("Explore your local UV index")),
-                                            textInput("zipinput", "Enter your zipcode", "33331"),
-                                            plotOutput("zipplot"),
-                                            hr(),
-                                            h6("Our data is from the Envirofacts Data Service API hosted by the", a("United States Environmental Protection Agency.", href = "https://www.epa.gov/enviro/web-services#uvindex"),  "We retrieved the UV Index data by querying hourly forecasts given a city and state or zipcode.")
-                                   ),
                                    tabPanel("UV Index | City/State",
                                             div(id = "header", titlePanel("Explore your local UV index")),
                                             textInput("cityinput", "Enter your city", "san francisco"),
@@ -154,29 +146,6 @@ server <- function(input, output) {
                          imax = c(3,6,8,11),
                          mycolor = c("A", "B", "C", "D")) %>%
         mutate(medy = imin + floor((imax-imin)/2))
-    
-    output$zipplot <- renderPlot({
-
-        zipbase_url <- "https://enviro.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/"
-        zipfull_url <- paste0(zipbase_url, zipcode(), "/JSON")
-        zipdata <- as.data.frame(fromJSON(readLines(zipfull_url)))
-
-        zipdata <- zipdata %>%
-            mutate(NEW_DATE = mdy_h(DATE_TIME))
-
-        ggplot() +
-            theme_light() +
-            geom_rect(data = uvrisk, aes(xmin = c(zipdata$NEW_DATE[1], zipdata$NEW_DATE[1], zipdata$NEW_DATE[1], zipdata$NEW_DATE[1]),
-                                         xmax = c(zipdata$NEW_DATE[21], zipdata$NEW_DATE[21], zipdata$NEW_DATE[21], zipdata$NEW_DATE[21]),
-                                         ymin = imin, ymax = imax, fill = mycolor)) +
-            geom_text(data = uvrisk, aes(x = zipdata$NEW_DATE[3], y = medy, label = name, size = 3))+
-            geom_line(data = zipdata, aes(x = NEW_DATE, y = UV_VALUE)) +
-            scale_y_continuous("UV Index", limit = c(-0.1, 11), breaks = c(0,1,2,3,4,5,6,7,8,9,10,11), expand = c(0, 0)) +
-            ggtitle("UV Index in the Past Day") +
-            theme(axis.title.x = element_blank(),
-                  legend.position = "None")
-
-    })
 
     
     city <- reactive(input$cityinput)
