@@ -72,7 +72,7 @@ ui <- fluidPage(theme = shinytheme("simplex"),
                                             )
                                    ),
                                    tabPanel("Resources",
-                                            h3("To find out more about the effect of UV rays, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
+                                            h3("To find out more about the effect of UV rays on human skin, there are a few skin cancer awareness organizations in the US that you can take a look at:"),
                                             h4(a("The Skin Cancer Foundation", href = "https://www.skincancer.org/")),
                                             h4(a("The National Council on Skin Cancer Prevention", href = "https://skincancerprevention.org/"))
                                         
